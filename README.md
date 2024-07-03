@@ -1,3 +1,4 @@
+![pixels](https://github.com/Wolfe2x7/Point-Lookalikes/assets/72348938/283dcfe8-fc91-433e-968d-0dc6ef1b59ff)
 # Point Primitive Lookalikes
 
 This example is based on Defold's basic 3D project template, but with a material demonstrating a method to make line meshes resemble point primitives.
