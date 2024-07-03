@@ -1,0 +1,5 @@
+material: "/materials/point.material"
+vertices: "/assets/meshes/quad.buffer"
+primitive_type: PRIMITIVE_LINES
+position_stream: "position"
+normal_stream: "normal"

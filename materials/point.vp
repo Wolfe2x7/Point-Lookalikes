@@ -1,0 +1,28 @@
+attribute mediump vec3 position;
+attribute mediump vec3 color;
+attribute lowp float vert_id;
+
+uniform mediump mat4 mtx_viewproj;
+uniform mediump vec4 resolution;
+
+varying mediump vec4 v_color;
+
+vec4 pointify(vec4 pos, vec2 res, float side) {
+	vec4 result = pos;
+	// to NDC
+  result.xyz = pos.xyz / pos.w;
+  // to pixel
+  result.x = floor(res.x * result.x) / res.x;
+  result.y = floor(res.y * result.y) / res.y;
+  // small length
+  result.x += 0.499 * side / res.x;
+  // to projection space
+  result.xyz *= pos.w;
+  return result;
+}
+
+void main() {
+  vec4 pos = mtx_viewproj * vec4(position, 1.0);
+  gl_Position = pointify(pos, 0.5 * resolution.xy, sign(vert_id));
+	v_color.rgb = color;
+}
